@@ -113,7 +113,7 @@ COURSE_DATA = {
                 "q": "4/5: 'Why are you smelling the milk?' - Why is Present Continuous used here?",
                 "options": ["Because it is a regular habit.", "Because smell represents an active physical action here.", "It is incorrect, smell cannot be used in Continuous."],
                 "correct": 1,
-                "expl": "Здесь smell — это физическое действие (человек намеренно нюхает молоко), а не пассивное ощущение запаха, поэтому Continuous правилен."
+                "expl": "Здесь smell — это physical action (человек намеренно нюхает молоко), а не пассивное ощущение запаха, поэтому Continuous правилен."
             },
             {
                 "q": "5/5: Regular exercise can improve your overall ______.\n(Образуй слово от прилагательного fit)",
@@ -166,7 +166,7 @@ COURSE_DATA = {
             "2. **Once in a blue moon** — безумно редко. *Example: My brother lives abroad, so he visits us once in a blue moon.*\n"
             "3. **Piece of cake** — проще простого (пустяковое дело). *Example: Don't worry about the exam, it's going to be a piece of cake.*\n"
             "4. **Cost an arm and a leg** — стоить целое состояние. *Example: This new smartphone costs an arm and a leg.*\n\n"
-            "🗣️ **Speaking Task:**\n"
+            "🗣 **Speaking Task:**\n"
             "Tell a story about a time when you bought something that *cost an arm and a leg*, but later you realized it wasn't *suitable* or *reliable* for you."
         ),
         "homework": (
@@ -269,7 +269,7 @@ COURSE_DATA = {
             "2. **Take advantage of** — воспользоваться моментом/преимуществом. *Example: You should take advantage of this free course.*\n"
             "3. **Do your best** — сделать всё возможное. *Example: Don't panic, just do your best in the test.*\n"
             "4. **Change your mind** — передумать, поменять решение. *Example: I was going to stay home, but I changed my mind.*\n\n"
-            "🗣️ **Speaking Practice:**\n"
+            "🗣 **Speaking Practice:**\n"
             "Talk about an important decision you made. Did you *change your mind* later? Did you *take advantage of* someone's advice? Speak for 1.5 minutes."
         ),
         "homework": (
@@ -357,7 +357,7 @@ async def send_welcome(message: types.Message):
     await message.answer(
         f"Hi {message.from_user.first_name}! 👋\n"
         "Добро пожаловать в мега-курс английского языка уровня B1+/B2.\n\n"
-        "Здесь добавлены развернутые лекции, огромные домашние задания и полноценные интерактивные тесты из 5 вопросов на каждый урок.\n\n"
+        "Все ошибки исправлены, кнопки настроены! Можешь приступать к обучению.\n\n"
         "Текущий класс: **Unit 1**.",
         reply_markup=main_menu
     )
@@ -383,9 +383,9 @@ async def process_unit_change(callback_query: types.CallbackQuery):
     await bot.send_message(
         user_id,
         f"✅ Успешно переключено на **{COURSE_DATA[unit_num]['title']}**!\n"
-        "Материалы и тесты обновлены. Можешь приступать!",
+        "Материалы, тесты и ДЗ обновлены. Можешь приступать!",
         reply_markup=main_menu,
-        parse_mode="Markdown"
+        transform_mode="Markdown"
     )
 
 # Блок: Грамматика
@@ -433,7 +433,6 @@ async def send_next_question(user_id, chat_id):
     
     if q_index < len(questions):
         q_data = questions[q_index]
-        # Строим инлайн-кнопки вариантов ответов
         buttons = []
         for i, option in enumerate(q_data["options"]):
             buttons.append([InlineKeyboardButton(text=option, callback_data=f"ans_{i}")])
@@ -441,7 +440,6 @@ async def send_next_question(user_id, chat_id):
         
         await bot.send_message(chat_id, f"❓ **Вопрос {q_data['q']}**", reply_markup=keyboard, parse_mode="Markdown")
     else:
-        # Тест завершен
         score = user_test_score[user_id]
         await bot.send_message(
             chat_id, 
@@ -450,7 +448,7 @@ async def send_next_question(user_id, chat_id):
             "Переходи к разделу 🏠 *Домашнее Задание* для закрепления темы!",
             parse_mode="Markdown"
         )
-        user_test_progress[user_id] = -1 # Закрываем тест
+        user_test_progress[user_id] = -1
 
 @dp.callback_query(lambda c: c.data.startswith('ans_'))
 async def handle_answer(callback_query: types.CallbackQuery):
@@ -468,7 +466,6 @@ async def handle_answer(callback_query: types.CallbackQuery):
     
     selected_ans = int(callback_query.data.split('_')[-1])
     
-    # Удаляем инлайн-кнопки у вопроса, чтобы пользователь не кликал дважды
     await bot.edit_message_reply_markup(chat_id=chat_id, message_id=callback_query.message.message_id, reply_markup=None)
     
     if selected_ans == q_data["correct"]:
@@ -478,16 +475,16 @@ async def handle_answer(callback_query: types.CallbackQuery):
         correct_text = q_data["options"][q_data["correct"]]
         await bot.send_message(chat_id, f"🔴 **Ошибка!**\nПравильный ответ: *{correct_text}*\n\n💡 {q_data['expl']}", parse_mode="Markdown")
     
-    # Переходим к следующему вопросу
     user_test_progress[user_id] += 1
-    await asyncio.sleep(1) # Небольшая пауза для комфорта чтения
+    await asyncio.sleep(1)
     await send_next_question(user_id, chat_id)
     await bot.answer_callback_query(callback_query.id)
 
-# Блок: Домашнее задание
+# ✅ ИСПРАВЛЕННЫЙ БЛОК: ОБРАБОТЧИК КНОПКИ ДОМАШНЕГО ЗАДАНИЯ
 @dp.message(lambda message: message.text == "🏠 Домашнее Задание")
 async def show_homework(message: types.Message):
-    unit = get_user_unit(message.from_user.id)
+    user_id = message.from_user.id
+    unit = get_user_unit(user_id)
     text = COURSE_DATA[unit]["homework"]
     
     if unit < 3:
@@ -503,7 +500,6 @@ async def show_homework(message: types.Message):
 @dp.callback_query(lambda c: c.data.startswith('go_'))
 async def process_navigation(callback_query: types.CallbackQuery):
     action = callback_query.data
-    user_id = callback_query.from_user.id
     await bot.answer_callback_query(callback_query.id)
     
     if action == "go_use_of_english":
