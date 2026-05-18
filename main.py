@@ -9,7 +9,7 @@ API_TOKEN = '8957320709:AAFfT_ATxTfom6EVuMW9con9Yvm-1FqwwtM'
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
-# Большая база данных курса (3 огромных юнита с тестами по 5 вопросов и большими ДЗ)
+# Обновленная база данных (без домашних заданий)
 COURSE_DATA = {
     1: {
         "title": "Unit 1: Noun Suffixes & State Verbs",
@@ -66,29 +66,6 @@ COURSE_DATA = {
             "— what the challenge was\n"
             "— how you prepared for it\n"
             "— and explain why it *turned out* to be difficult or easy for you."
-        ),
-        "homework": (
-            "🏠 **ОБТЯЖЕЛЕННОЕ ДОМАШНЕЕ ЗАДАНИЕ — UNIT 1**\n\n"
-            "ℹ️ *Выполни задания письменно в заметках или тетради.*\n\n"
-            "**Задание 1: Word Formation (Раскрой скобки, создав существительное):**\n"
-            "1. The headmaster expressed his deep _________ (DISAPPOINT) with the exam results.\n"
-            "2. Thank you for your _________ (KIND), it helped me a lot.\n"
-            "3. We need to get _________ (PERMIT) before we enter the lab.\n"
-            "4. Regular exercise improves your physical _________ (FIT).\n"
-            "5. His _________ (REFUSAL) to cooperate surprised everyone.\n\n"
-            "**Задание 2: Grammar (Present Simple или Present Continuous):**\n"
-            "1. Don't disturb him. He _________ (think) about his project layout.\n"
-            "2. I _________ (think) this textbook is the best for level B2.\n"
-            "3. This coffee _________ (taste) bitter. I don't like it.\n"
-            "4. Why _________ you _________ (taste) the soup? Is there something wrong with it?\n"
-            "5. Michael _________ (own) three big apartments in London.\n\n"
-            "**Задание 3: Phrasal Verbs & Vocabulary:**\n"
-            "Вставь подходящий фразовый глагол (*bring up, fall behind, look into, turn out*):\n"
-            "1. Don't work too slowly or you will __________.\n"
-            "2. The committee promises to __________ the complaints immediately.\n"
-            "3. I didn't want to __________ our financial problems at the family dinner.\n\n"
-            "**Задание 4: Writing Exercise:**\n"
-            "Напиши абзац из 5-6 предложений на тему: 'Should mobile phones be banned in schools?'. Использовать минимум 2 вводных слова уровня B2 (например: *Furthermore, On the other hand*) и БЕЗ сокращений (пиши *is not, do not*)."
         ),
         "questions": [
             {
@@ -168,29 +145,6 @@ COURSE_DATA = {
             "4. **Cost an arm and a leg** — стоить целое состояние. *Example: This new smartphone costs an arm and a leg.*\n\n"
             "🗣 **Speaking Task:**\n"
             "Tell a story about a time when you bought something that *cost an arm and a leg*, but later you realized it wasn't *suitable* or *reliable* for you."
-        ),
-        "homework": (
-            "🏠 **ОБТЯЖЕЛЕННОЕ ДОМАШНЕЕ ЗАДАНИЕ — UNIT 2**\n\n"
-            "**Задание 1: Narrative Tenses (Раскрой скобки в Past Simple, Past Continuous или Past Perfect):**\n"
-            "1. While I _________ (walk) in the park, I suddenly _________ (see) an old friend.\n"
-            "2. When we arrived at the cinema, the movie _________ (already / start).\n"
-            "3. He _________ (turn on) the TV, _________ (sit) on the sofa and started watching the news.\n"
-            "4. Her eyes were red because she _________ (cry) before I entered.\n"
-            "5. The sun _________ (shine) and the birds _________ (sing) when I woke up this morning.\n\n"
-            "**Задание 2: Word Formation (Сделай прилагательное):**\n"
-            "1. Be _________ (CARE)! The roads are very icy today.\n"
-            "2. He is completely _________ (HOME). He has no place to live.\n"
-            "3. She is a very _________ (RELY) assistant; she never makes mistakes.\n"
-            "4. This museum is highly _________ (IMPRESS). You must visit it.\n"
-            "5. The pain was _________ (END). It felt like it would never stop.\n\n"
-            "**Задание 3: Key Word Transformations (B2 Exam style):**\n"
-            "Перепиши предложения, используя капслок-слово (от 2 до 4 слов):\n"
-            "1. I bought this jacket very rarely. (MOON)\n"
-            "➡️ I bought this jacket once ____________________.\n"
-            "2. My sister and I completely agree about everything. (EYE)\n"
-            "➡️ My sister and I see ____________________ about everything.\n\n"
-            "**Задание 4: Speaking/Writing:**\n"
-            "Напиши email другу (80-100 слов), рассказав о смешном случае из жизни. Используй Past Simple, Continuous, Perfect и минимум две идиомы: *once in a blue moon, piece of cake*."
         ),
         "questions": [
             {
@@ -272,28 +226,6 @@ COURSE_DATA = {
             "🗣 **Speaking Practice:**\n"
             "Talk about an important decision you made. Did you *change your mind* later? Did you *take advantage of* someone's advice? Speak for 1.5 minutes."
         ),
-        "homework": (
-            "🏠 **ОБТЯЖЕЛЕННОЕ ДОМАШНЕЕ ЗАДАНИЕ — UNIT 3**\n\n"
-            "**Задание 1: Passive Voice Transformations (Переделай активный залог в пассивный):**\n"
-            "1. Someone is painting the office wall right now. ➡️ The office wall ____________________.\n"
-            "2. They have built a new bridge over the river. ➡️ A new bridge ____________________.\n"
-            "3. The teacher will grade our essays tomorrow. ➡️ Our essays ____________________.\n"
-            "4. Shakespeare wrote 'Romeo and Juliet'. ➡️ 'Romeo and Juliet' ____________________.\n"
-            "5. Students must hand in assignments by Friday. ➡️ Assignments ____________________.\n\n"
-            "**Задание 2: Word Formation (Образуй глаголы с суффиксами -ify, -ize, -en):**\n"
-            "1. Can you please _________ (SIMPLE) this rule? It is too complicated.\n"
-            "2. Drivers should _________ (SLOW) down when it starts to rain.\n"
-            "3. Technology helps us to _________ (GLOBAL) our business.\n"
-            "4. The dark sky began to _________ (LIGHT) as the sun rose.\n"
-            "5. Could you _________ (CLEAR) your last statement? I didn't get it.\n\n"
-            "**Задание 3: Collocations (Вставь make, do, take, change):**\n"
-            "1. It doesn't matter if you fail, as long as you _________ your best.\n"
-            "2. I'm trying to _________ an effort to eat healthier food.\n"
-            "3. He decided to _________ advantage of the sales and bought three coats.\n"
-            "4. She never __________ her mind; she is very stubborn.\n\n"
-            "**Задание 4: Essay Practice:**\n"
-            "Напиши 60-80 слов для официального отчета на тему: 'The impact of computers on modern lifestyle'. Используй пассивный залог минимум 3 раза (например: *is being used, has been proved*)."
-        ),
         "questions": [
             {
                 "q": "1/5: Active: 'They are building a school.' -> Passive:",
@@ -337,12 +269,12 @@ user_test_score = {}    # Счет правильных ответов {user_id:
 def get_user_unit(user_id):
     return user_units.get(user_id, 1)
 
-# Главное клавиатурное меню
+# Главное меню (КНОПКА ДЗ ПОЛНОСТЬЮ УБРАНА)
 main_menu = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="📖 Изучать Теорию (Grammar & Suffixes)")],
         [KeyboardButton(text="🧠 Use of English & Vocabulary"), KeyboardButton(text="🎧 Reading & Listening")],
-        [KeyboardButton(text="📝 Пройти Тест из 5 вопросов"), KeyboardButton(text="🏠 Домашнее Задание")],
+        [KeyboardButton(text="📝 Пройти Тест из 5 вопросов")],
         [KeyboardButton(text="🔄 Сменить / Выбрать Урок")]
     ],
     resize_keyboard=True
@@ -352,12 +284,12 @@ main_menu = ReplyKeyboardMarkup(
 async def send_welcome(message: types.Message):
     user_id = message.from_user.id
     user_units[user_id] = 1
-    user_test_progress[user_id] = -1 # Тест не запущен
+    user_test_progress[user_id] = -1 
     
     await message.answer(
         f"Hi {message.from_user.first_name}! 👋\n"
         "Добро пожаловать в мега-курс английского языка уровня B1+/B2.\n\n"
-        "Все ошибки исправлены, кнопки настроены! Можешь приступать к обучению.\n\n"
+        "Меню обновлено, лишние кнопки убраны. Приятного обучения!\n\n"
         "Текущий класс: **Unit 1**.",
         reply_markup=main_menu
     )
@@ -377,15 +309,24 @@ async def process_unit_change(callback_query: types.CallbackQuery):
     unit_num = int(callback_query.data.split('_')[-1])
     user_id = callback_query.from_user.id
     user_units[user_id] = unit_num
-    user_test_progress[user_id] = -1 # Сбрасываем тест при смене урока
+    user_test_progress[user_id] = -1 
     
     await bot.answer_callback_query(callback_query.id)
+    
+    # Кнопка перехода на следующий юнит в конце теста
+    if unit_num < 3:
+        next_unit_btn = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text=f"Открыть Unit {unit_num+1} 🔓", callback_data=f"set_unit_{unit_num+1}")]
+        ])
+    else:
+        next_unit_btn = None
+
     await bot.send_message(
         user_id,
         f"✅ Успешно переключено на **{COURSE_DATA[unit_num]['title']}**!\n"
-        "Материалы, тесты и ДЗ обновлены. Можешь приступать!",
+        "Материалы и тесты обновлены. Можешь приступать!",
         reply_markup=main_menu,
-        transform_mode="Markdown"
+        parse_mode="Markdown"
     )
 
 # Блок: Грамматика
@@ -422,8 +363,8 @@ async def show_skills(message: types.Message):
 @dp.message(lambda message: message.text == "📝 Пройти Тест из 5 вопросов")
 async def start_test_command(message: types.Message):
     user_id = message.from_user.id
-    user_test_progress[user_id] = 0 # Ставим индекс первого вопроса
-    user_test_score[user_id] = 0    # Обнуляем очки
+    user_test_progress[user_id] = 0 
+    user_test_score[user_id] = 0    
     await send_next_question(user_id, message.chat.id)
 
 async def send_next_question(user_id, chat_id):
@@ -441,12 +382,22 @@ async def send_next_question(user_id, chat_id):
         await bot.send_message(chat_id, f"❓ **Вопрос {q_data['q']}**", reply_markup=keyboard, parse_mode="Markdown")
     else:
         score = user_test_score[user_id]
+        
+        # Вместо ДЗ теперь предлагаем сразу открыть следующий юнит, если он есть
+        if unit < 3:
+            keyboard = InlineKeyboardMarkup(inline_keyboard=[
+                [InlineKeyboardButton(text=f"Открыть Unit {unit+1} 🔓", callback_data=f"set_unit_{unit+1}")]
+            ])
+        else:
+            keyboard = None
+            
         await bot.send_message(
             chat_id, 
             f"🎉 **Тест по Unit {unit} завершен!**\n"
             f"Твой результат: **{score} из 5** правильных ответов.\n\n"
-            "Переходи к разделу 🏠 *Домашнее Задание* для закрепления темы!",
-            parse_mode="Markdown"
+            "Отличная работа!",
+            parse_mode="Markdown",
+            reply_markup=keyboard
         )
         user_test_progress[user_id] = -1
 
@@ -480,22 +431,6 @@ async def handle_answer(callback_query: types.CallbackQuery):
     await send_next_question(user_id, chat_id)
     await bot.answer_callback_query(callback_query.id)
 
-# ✅ ИСПРАВЛЕННЫЙ БЛОК: ОБРАБОТЧИК КНОПКИ ДОМАШНЕГО ЗАДАНИЯ
-@dp.message(lambda message: message.text == "🏠 Домашнее Задание")
-async def show_homework(message: types.Message):
-    user_id = message.from_user.id
-    unit = get_user_unit(user_id)
-    text = COURSE_DATA[unit]["homework"]
-    
-    if unit < 3:
-        next_unit_btn = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text=f"Открыть Unit {unit+1} 🔓", callback_data=f"set_unit_{unit+1}")]
-        ])
-    else:
-        next_unit_btn = None
-        
-    await message.answer(text, parse_mode="Markdown", reply_markup=next_unit_btn)
-
 # Навигация внутри inline-ссылок (связка разделов)
 @dp.callback_query(lambda c: c.data.startswith('go_'))
 async def process_navigation(callback_query: types.CallbackQuery):
@@ -510,7 +445,7 @@ async def process_navigation(callback_query: types.CallbackQuery):
         await start_test_command(callback_query.message)
 
 async def main():
-    print("Супер-курс успешно обновлен на Railway!")
+    print("Бот успешно обновлен на Railway (версия без ДЗ)!")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
